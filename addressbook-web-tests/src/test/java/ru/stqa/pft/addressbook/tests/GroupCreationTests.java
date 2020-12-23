@@ -57,14 +57,14 @@ public class GroupCreationTests extends TestBase {
         assertThat(after, equalTo(CommonUtils.compareGroups(before, after, group)));
     }
 
-//  @Test
-//  public void testBadGroupCreation() throws Exception {
-//    app.goTo().groupPage();
-//    Groups before = app.group().all();
-//    GroupData group = new GroupData().withName("test2'");
-//    app.group().createGroup(group);
-//    assertThat(app.group().count(), equalTo(before.size()));
-//    Groups after = app.group().all();
-//    assertThat(after, equalTo(before));
-//  }
+    @Test
+    public void testBadGroupCreation() {
+        navigationHelperStep.openGroupPage();
+        Groups before = groupHelperStep.getGroups();
+        GroupData group = new GroupData().withName("test2'");
+        groupHelperStep.createGroup(group);
+        assertThat(groupHelperStep.count(), equalTo(before.size()));
+        Groups after = groupHelperStep.getGroups();
+        assertThat(after, equalTo(before));
+    }
 }
