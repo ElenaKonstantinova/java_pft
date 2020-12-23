@@ -7,7 +7,7 @@ public class GroupData {
     private String footer;
 
     public int getId() {
-         return id;
+        return id;
     }
 
     @Override
@@ -29,8 +29,8 @@ public class GroupData {
     }
 
     public GroupData withId(int id) {
-         this.id = id;
-         return this;
+        this.id = id;
+        return this;
     }
 
     public GroupData withName(String name) {

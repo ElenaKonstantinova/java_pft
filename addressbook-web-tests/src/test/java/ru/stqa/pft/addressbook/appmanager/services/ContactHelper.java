@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.appmanager;
+package ru.stqa.pft.addressbook.appmanager.services;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver wd) {
         super(wd);
@@ -57,7 +57,7 @@ public class ContactHelper extends HelperBase{
         click(By.name("update"));
     }
 
-    public void selectContact (int index) {
+    public void selectContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 

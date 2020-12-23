@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.appmanager;
+package ru.stqa.pft.addressbook.appmanager.services;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +8,9 @@ import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.List;
 
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
+
+    private Groups groupCache = null;
 
     public GroupHelper(WebDriver wd) {
         super(wd);
@@ -37,7 +39,7 @@ public class GroupHelper extends HelperBase{
     }
 
     public void selectGroupById(int id) {
-        wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
+        wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void initGroupModification() {
@@ -47,7 +49,6 @@ public class GroupHelper extends HelperBase{
     public void submitGroupModification() {
         click(By.name("update"));
     }
-
 
     public void createGroup(GroupData group) {
         initGroupCreation();
@@ -81,9 +82,7 @@ public class GroupHelper extends HelperBase{
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    private Groups groupCache = null;
-
-    public Groups all() {
+    public Groups getGroups() {
         if (groupCache != null) {
             return new Groups(groupCache);
         }
